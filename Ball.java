@@ -8,15 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ball extends Actor
 {
-    public int deltaX = (Greenfoot.getRandomNumber(9) + 3);
-    public int deltaY = (Greenfoot.getRandomNumber(9) + 3);
+    public int deltaX = (Greenfoot.getRandomNumber(8) + 5);
+    public int deltaY = (Greenfoot.getRandomNumber(8) + 5);
     private int player1Count;
     private int player2Count;
     private Scoreboard score;
+   
     
 public Ball(Scoreboard scoreboard)
     {
-       
         score = scoreboard;
     }
     
@@ -74,6 +74,7 @@ public void scorePoints()
                 Greenfoot.delay(25);
             }
         }
+        
         if (getX()>790)
         {
             player1Count++;
@@ -96,19 +97,19 @@ public void scorePoints()
         }
     }
     public void flugschlaeger(){
-        if(foundplayerTwo()){
+        if(foundplayerOne()){
             setRotation(getRotation() - 180);
             Greenfoot.playSound("ping.wav");
-           
+            
         }
-        else if(foundplayerOne()){
+        else if(foundplayerTwo()){
             setRotation(getRotation() + 180);
             Greenfoot.playSound("pong.wav");
             
         }
-    }
+    } 
     
-     public boolean foundplayerTwo()
+       public boolean foundplayerOne()
     {
        Actor sl= getOneIntersectingObject(playerOne.class);
        if (sl != null) 
@@ -121,7 +122,7 @@ public void scorePoints()
        }
     }
     
-    public boolean foundplayerOne()
+    public boolean foundplayerTwo()
     {
        Actor sr= getOneIntersectingObject(playerTwo.class);
        if (sr != null) 
@@ -134,4 +135,3 @@ public void scorePoints()
        }
     }
 }
-

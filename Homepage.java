@@ -13,7 +13,7 @@ public class Homepage extends World
      * Constructor for objects of class Homepage.
      * 
      */
-    public GreenfootSound music = new GreenfootSound("vvv.mp3");
+    public GreenfootSound music = new GreenfootSound("bbb.mp3");
     public void started()
     {
         music.setVolume(40);
